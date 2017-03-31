@@ -49,6 +49,7 @@ In-memory : For using InMemoryTokenRepositoryImpl, we have to declare Persistent
 	
     }
 </code>  
+
 JdbcTokenRepositoryImpl: Since we are using hibernate as persistence API, we will use hibernate for persisting the token in Db. We will be not be using JdbcTokenRepositoryImpl.
 
 We have to implement PersistentTokenRepository in the DAO of persistent-token tracking table.
