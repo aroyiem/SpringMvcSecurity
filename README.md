@@ -29,5 +29,41 @@ tomcat>conf>server.xml within GlobalNamingResources tag add below datasource res
 	  name="jdbc/springsecurity"
 	  global="jdbc/springsecurity"
 	  type="javax.sql.DataSource"/>
+	  
+Spring Security Remember-Me service
+-----------------------------------------------
+Spring security provides the functinality of remember-me service. 
+Spring Security comes with two implementation of PersistentTokenRepository : JdbcTokenRepositoryImpl and InMemoryTokenRepositoryImpl.
+
+In-memory : For using InMemoryTokenRepositoryImpl, we have to declare PersistentTokenRepository as
+
+   @Bean
+    public PersistentTokenRepository tokenRepository(){
+        InMemoryTokenRepositoryImpl inMemoryTokenRepositoryImpl = new InMemoryTokenRepositoryImpl();
+        return inMemoryTokenRepositoryImpl;
+    }
     
+JdbcTokenRepositoryImpl: Since we are using hibernate as persistence API, we will use hibernate for persisting the token in Db. We will be not be using JdbcTokenRepositoryImpl.
+
+We have to implement PersistentTokenRepository in the DAO of persistent-token tracking table.
+
+public class PersistentLoginsDao implements PersistentTokenRepository{
+
+	@Override
+    public void createNewToken(PersistentRememberMeToken token)..
     
+    @Override
+    public PersistentRememberMeToken getTokenForSeries(String seriesId)..
+    
+    @Override
+    public void removeUserTokens(String username)..
+    
+    @Override
+    public void updateToken(String seriesId, String tokenValue, Date lastUsed)..
+}
+
+
+
+
+
+
