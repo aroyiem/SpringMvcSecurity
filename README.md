@@ -66,8 +66,8 @@ We have to implement PersistentTokenRepository in the DAO of persistent-token tr
     	@Override
     	public void removeUserTokens(String username)..
     
-   	 @Override
-   	 public void updateToken(String seriesId, String tokenValue, Date lastUsed)..
+   	@Override
+   	public void updateToken(String seriesId, String tokenValue, Date lastUsed)..
 	}
 </code>
 
