@@ -69,6 +69,7 @@ We have to implement PersistentTokenRepository in the DAO of persistent-token tr
 </code>
 
 
-
+Login: sam
+Password: abc125
 
 
