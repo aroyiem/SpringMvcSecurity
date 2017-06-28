@@ -23,6 +23,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl;
 
 /**
  *
@@ -100,5 +101,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         annotationMBeanExporter.addExcludedBean("dataSource");
         annotationMBeanExporter.setRegistrationPolicy(RegistrationPolicy.IGNORE_EXISTING);
         return annotationMBeanExporter;
+    }
+    
+    @Bean
+    public PersistentTokenRepository tokenRepository() {
+       InMemoryTokenRepositoryImpl inMemoryTokenRepositoryImpl = new InMemoryTokenRepositoryImpl();
+       return inMemoryTokenRepositoryImpl;
     }
 }
