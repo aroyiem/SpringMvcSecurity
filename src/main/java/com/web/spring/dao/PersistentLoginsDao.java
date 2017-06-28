@@ -30,7 +30,7 @@ public class PersistentLoginsDao /*implements PersistentTokenRepository*/{
     private PersistentLoginsRepo persistentLoginsRepo;
 
     
-    @Override
+    //@Override
     public void createNewToken(PersistentRememberMeToken token) {
         LOGGER.info("Creating Token for user : {}"+token.getUsername());
         PersistentLogins persistentLogin = new PersistentLogins();
@@ -43,7 +43,7 @@ public class PersistentLoginsDao /*implements PersistentTokenRepository*/{
     }
 
     
-    @Override
+    //@Override
     public PersistentRememberMeToken getTokenForSeries(String seriesId) {
         LOGGER.info("Fetch Token if any for seriesId : {}"+ seriesId);
         try {
@@ -58,7 +58,7 @@ public class PersistentLoginsDao /*implements PersistentTokenRepository*/{
         }
     }
     
-    @Override
+    //@Override
     public void removeUserTokens(String username) {
         LOGGER.info("Removing Token if any for user : {}"+ username);
         
@@ -70,7 +70,7 @@ public class PersistentLoginsDao /*implements PersistentTokenRepository*/{
     }
 
     
-    @Override
+    //@Override
     public void updateToken(String seriesId, String tokenValue, Date lastUsed) {
         LOGGER.info("Updating Token for seriesId : {}"+ seriesId);
         PersistentLogins persistentLogin = persistentLoginsRepo.findBySeries(seriesId);
