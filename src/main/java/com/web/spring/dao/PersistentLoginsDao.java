@@ -18,10 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author 330085
+ * PersistentTokenRepository implementation commented out since we are using in-memory remember me service
  */
 @Repository("tokenRepositoryDao")
 @Transactional
-public class PersistentLoginsDao implements PersistentTokenRepository{
+public class PersistentLoginsDao /*implements PersistentTokenRepository*/{
 
     private static final Logger LOGGER = Logger.getLogger(PersistentLoginsDao.class);
 
