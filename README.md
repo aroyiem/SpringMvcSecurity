@@ -68,7 +68,7 @@ We have to implement PersistentTokenRepository in the DAO of persistent-token tr
 	}
 </code>
 
-
+Note: If we need to use InMemory remember me services, in that case we have to cooment out implementation of PersistentTokenRepository.
 Login: sam
 Password: abc125
 
